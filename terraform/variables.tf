@@ -21,3 +21,16 @@ variable "private_subnets" {
   type        = list(string)
   default     = ["10.0.3.0/24", "10.0.4.0/24"]
 }
+
+variable "key_name" {
+  description = "EC2 Key Pair for SSH"
+  type        = string
+  default     = "capstone-key"
+}
+
+variable "db_password" {
+  description = "Password for the RDS database"
+  type        = string
+  sensitive   = true
+  default     = "capstonepass" # Avoid defaults in production!
+}
